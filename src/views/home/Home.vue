@@ -1,0 +1,13 @@
+<template>
+  <div>这里是首页啦</div>
+</template>
+
+<script>
+export default {
+  name: 'Home'
+}
+</script>
+
+<style scoped>
+
+</style>
