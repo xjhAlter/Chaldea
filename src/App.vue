@@ -11,17 +11,21 @@
     <div class="layout-footer">
       <Footer></Footer>
     </div>
+    <div class="layout-right-tool">
+      <RightTool></RightTool>
+    </div>
   </div>
 </template>
 
 <script>
-import Header from '@/views/layout/Header'
-import Footer from '@/views/layout/Footer'
+import {Header, Footer, RightTool} from '@/views/layout'
+
 export default {
   name: 'App',
   components: {
     Header,
-    Footer
+    Footer,
+    RightTool
   }
 }
 </script>
@@ -35,6 +39,12 @@ export default {
   color: #2c3e50;
   .layout-content {
     min-height: calc(100vh - 140px);
+    margin: 0 200px;
+  }
+
+  .layout-right-tool {
+    position: absolute;
+    right: 200px;
   }
 }
 </style>

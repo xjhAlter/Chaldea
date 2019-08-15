@@ -1,0 +1,35 @@
+//通用的样式
+
+//颜色系列
+.color-default {
+  color: #ffffff;
+}
+
+.color-primary {
+  color: #409eff;
+}
+
+.color-danger {
+  color: #f56c6c;
+}
+
+.color-success {
+  color: #67c23a;
+}
+
+.color-waring {
+  color: #e6a23c;
+}
+
+.color-info {
+  color: #909399;
+}
+
+
+.highlight {
+  cursor: pointer;
+  &:hover {
+    color: #409eff;
+  }
+}
+
