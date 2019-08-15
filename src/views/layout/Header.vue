@@ -1,9 +1,9 @@
 <template>
   <div class="header">
     <el-row class="header-row">
-      <el-col @click.native="go('Home')" :class="{'color-primary':current === 'Home'}">首页</el-col>
-      <el-col @click.native="go('ServantList')" :class="{'color-primary':current === 'ServantList'}">英灵</el-col>
-      <el-col @click.native="go('ConceptCardList')" :class="{'color-primary':current === 'ConceptCardList'}">概念礼装</el-col>
+      <el-col @click.native="go('Home')" :class="{'color-primary':isCurrent('Home')}">首页</el-col>
+      <el-col @click.native="go('ServantList')" :class="{'color-primary':isCurrent('Servant')}">英灵</el-col>
+      <el-col @click.native="go('ConceptCardList')" :class="{'color-primary':isCurrent('ConceptCard')}">概念礼装</el-col>
     </el-row>
   </div>
 </template>
@@ -16,14 +16,29 @@ export default {
       current: 'Home'
     }
   },
+  created () {
+    this.current = this.$router.history.current.name
+
+    // let reg = /^(Home|Servant|ConceptCard)/
+    // console.log(reg.exec(current)[0])
+  },
   methods: {
     go (to) {
-      if (to !== this.current) {
+      let current = this.$router.history.current.name
+      if (to !== current) {
+        console.log(`From ${current} to ${to}`)
         this.current = to
-        console.log(this.current)
         this.$router.push({
           name: to
         })
+      }
+    }
+  },
+  computed: {
+    isCurrent () {
+      // computed中不能传参，可以返回一个带参数的方法
+      return function (tab) {
+        return this.current ? this.current.indexOf(tab) > -1 : false
       }
     }
   }

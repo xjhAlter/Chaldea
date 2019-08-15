@@ -3,7 +3,7 @@ import Router from 'vue-router'
 // import HelloWorld from '@/components/HelloWorld'
 import Home from '@/views/home/Home'
 import Servant from '@/views/servant'
-import Card from '@/views/card'
+import ConceptCard from '@/views/conceptCard'
 
 Vue.use(Router)
 
@@ -26,6 +26,6 @@ export default new Router({
       component: Home
     },
     ...Servant,
-    ...Card
+    ...ConceptCard
   ]
 })

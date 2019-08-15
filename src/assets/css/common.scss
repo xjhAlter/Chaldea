@@ -1,4 +1,9 @@
 //通用的样式
+ul, li {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+}
 
 //颜色系列
 .color-default {

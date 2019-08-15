@@ -43,6 +43,15 @@ export default {
     },
     getScrollTop () {
       this.scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
+    },
+    onWindowResize () {
+      let docWidth = document.body.clientWidth
+      let ulElement = document.getElementsByClassName('right-tool')[0]
+      if (docWidth < 1366) {
+        ulElement.style.right = 0
+      } else {
+        ulElement.style.right = 'auto'
+      }
     }
   },
   created () {
@@ -50,6 +59,8 @@ export default {
   },
   mounted () {
     window.addEventListener('scroll', this.getScrollTop)
+    window.addEventListener('resize', this.onWindowResize)
+    this.onWindowResize()
 
     // let _this = this;
     // window.onscroll = function () {
@@ -75,9 +86,6 @@ export default {
 
 <style lang="less" scoped>
   .right-tool {
-    ul, li {
-      list-style-type: none;
-    }
     li {
       width: 50px;
       height: 50px;

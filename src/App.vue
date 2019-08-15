@@ -7,12 +7,12 @@
       <keep-alive>
         <router-view/>
       </keep-alive>
+      <div class="layout-right-tool">
+        <RightTool></RightTool>
+      </div>
     </div>
     <div class="layout-footer">
       <Footer></Footer>
-    </div>
-    <div class="layout-right-tool">
-      <RightTool></RightTool>
     </div>
   </div>
 </template>
@@ -38,13 +38,15 @@ export default {
   text-align: center;
   color: #2c3e50;
   .layout-content {
+    position: relative;
+    width: 1200px;
     min-height: calc(100vh - 140px);
-    margin: 0 200px;
+    margin: 0 auto;
   }
 
   .layout-right-tool {
     position: absolute;
-    right: 200px;
+    right: -10px;
   }
 }
 </style>
