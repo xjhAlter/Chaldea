@@ -5,14 +5,15 @@
       <el-table-column prop="id" label="编号" width="180"></el-table-column>
       <el-table-column label="姓名" width="180">
         <template slot-scope="scope">
-          <div class="highlight" @click="toCard(scope.row.id)">{{scope.row.name}}</div>
+          <div class="highlight" @click="toCard(scope.row)">{{scope.row.name}}</div>
         </template>
       </el-table-column>
       <el-table-column label="图片">
         <template slot-scope="scope">
-          <div class="img-wrapper">
-            <img :src="scope.row.previewUrl" alt="测试图片">
-          </div>
+<!--          <div class="img-wrapper">-->
+<!--            <img :src="scope.row.previewUrl" alt="测试图片">-->
+<!--          </div>-->
+          <ImgModal :imgUrl="scope.row.previewUrl" :imgWidth="150" :imgHeight="150"></ImgModal>
         </template>
       </el-table-column>
     </el-table>
@@ -20,8 +21,12 @@
 </template>
 
 <script>
+import {ImgModal} from '@/components'
 export default {
   name: 'ConceptCardList',
+  components: {
+    ImgModal
+  },
   data () {
     return {
       cards: [{
@@ -56,10 +61,11 @@ export default {
     }
   },
   methods: {
-    toCard (id) {
+    toCard (item) {
       this.$router.push({
         name: 'ConceptCard',
-        params: {id: id}
+        params: {id: item.id},
+        query: {imgUrl: item.previewUrl}
       })
     }
   }
