@@ -1,8 +1,37 @@
 //通用的样式
-ul, li {
-  padding: 0;
-  margin: 0;
-  list-style-type: none;
+body {
+  background-color: #f4f4f4;
+
+  * {
+    padding: 0;
+    margin: 0;
+  }
+
+  ul, li {
+    list-style-type: none;
+  }
+}
+
+::selection {
+  background: #fff;
+  color: #409eff;
+}
+
+::-webkit-scrollbar{
+  width: 7px;
+}
+
+::-webkit-scrollbar-thumb{
+  border-radius: 3px;
+  background-color: #e8e8e8;
+  &:hover {
+    background-color: #999;
+  }
+}
+
+::-webkit-scrollbar-track{
+  border-radius: 3px;
+  background-color: #f4f4f4;
 }
 
 //颜色系列

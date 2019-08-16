@@ -40,8 +40,8 @@ export default {
   .layout-content {
     position: relative;
     width: 1200px;
-    min-height: calc(100vh - 140px);
-    margin: 0 auto;
+    min-height: calc(100vh - 180px);
+    margin: 20px auto;
   }
 
   .layout-right-tool {

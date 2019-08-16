@@ -7,7 +7,7 @@ import ConceptCard from '@/views/conceptCard'
 
 Vue.use(Router)
 
-export default new Router({
+let router = new Router({
   mode: 'history',
   routes: [
     // {
@@ -29,3 +29,10 @@ export default new Router({
     ...ConceptCard
   ]
 })
+
+router.afterEach((to, from, next) => {
+  // 每次路由跳转后视图都回到顶部
+  window.scrollTo(0, 0)
+})
+
+export default router
