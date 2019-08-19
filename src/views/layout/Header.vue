@@ -1,9 +1,10 @@
 <template>
   <div class="header">
     <el-row class="header-row">
-      <el-col @click.native="go('Home')" :class="{'color-primary':isCurrent('Home')}">首页</el-col>
-      <el-col @click.native="go('ServantList')" :class="{'color-primary':isCurrent('Servant')}">英灵</el-col>
-      <el-col @click.native="go('ConceptCardList')" :class="{'color-primary':isCurrent('ConceptCard')}">概念礼装</el-col>
+      <el-col :span="3" @click.native="go('Home')" :class="{'color-primary':isCurrent('Home')}">首页</el-col>
+      <el-col :span="3" @click.native="go('ServantList')" :class="{'color-primary':isCurrent('Servant')}">英灵</el-col>
+      <el-col :span="3" @click.native="go('ConceptCardList')" :class="{'color-primary':isCurrent('ConceptCard')}">概念礼装</el-col>
+      <el-col :span="3" @click.native="go('UserLogin')" :class="{'color-primary':isCurrent('User')}" :offset="18">登陆</el-col>
     </el-row>
   </div>
 </template>
@@ -41,6 +42,14 @@ export default {
         return this.current ? this.current.indexOf(tab) > -1 : false
       }
     }
+  },
+  watch: {
+    '$route': {
+      handler (route) {
+        this.current = route.name
+      },
+      deep: true
+    }
   }
 }
 </script>
@@ -57,7 +66,6 @@ export default {
       color: #fff;
       padding: 0 50px;
       .el-col {
-        width: 100px;
         font-weight: bold;
         cursor: pointer;
         &:hover {

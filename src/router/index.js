@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 // import HelloWorld from '@/components/HelloWorld'
 import Home from '@/views/home/Home'
+import User from '@/views/user'
 import Servant from '@/views/servant'
 import ConceptCard from '@/views/conceptCard'
 
@@ -25,6 +26,7 @@ let router = new Router({
       name: 'Home',
       component: Home
     },
+    ...User,
     ...Servant,
     ...ConceptCard
   ]
