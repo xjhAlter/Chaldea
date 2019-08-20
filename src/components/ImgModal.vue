@@ -1,9 +1,9 @@
 <template>
   <div class="img-modal">
-    <img :src="imgUrl" :width="imgWidth" :height="imgHeight" class="modal-img" :class="skin" @click="showImgModal" alt="">
+    <img :src="imgSrc" :width="imgWidth" :height="imgHeight" class="modal-img" :class="skin" @click="showImgModal" alt="">
     <div class="modal" v-show="showModal">
       <div class="modal-content">
-        <img :src="imgUrl" alt="">
+        <img :src="imgSrc" alt="">
         <i class="el-icon-circle-close" @click="close"></i>
       </div>
     </div>
@@ -17,6 +17,10 @@ export default {
     imgUrl: {
       required: true,
       type: String
+    },
+    localMode: {
+      type: Boolean,
+      default: false
     },
     skin: {
       require: false,
@@ -47,6 +51,16 @@ export default {
     },
     close () {
       this.showModal = false
+    }
+  },
+  computed: {
+    imgSrc () {
+      if (this.localMode) {
+        // 由于:src 不能解析本地图片，所以以这种方式引入本地图片，本地图片统一放在/assets/image/下
+        return require(`../assets/image/${this.imgUrl}`)
+      } else {
+        return this.imgUrl
+      }
     }
   }
 }
