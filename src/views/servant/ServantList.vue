@@ -12,7 +12,7 @@
       <el-table-column prop="id" label="No." width="120" :align="'center'"></el-table-column>
       <el-table-column label="头像" :align="'center'">
         <template slot-scope="scope">
-          <ImgModal :imgUrl="scope.row.avatarUrl" :imgWidth="100" :imgHeight="100" :localMode="true"></ImgModal>
+          <ImgModal :imgUrl="scope.row.avatarUrl" :imgWidth="66" :imgHeight="72" :localMode="true"></ImgModal>
         </template>
       </el-table-column>
       <el-table-column label="姓名" width="120" :align="'center'">
@@ -42,8 +42,8 @@ export default {
   data () {
     return {
       items: [{
-        id: '203',
-        avatarUrl: 'servant_avatar/servant203.jpg',
+        id: '206',
+        avatarUrl: 'servant_avatar/Servant206.jpg',
         name: '阿喀琉斯',
         jpName: 'アキレウス',
         enName: 'Achilles',
@@ -56,7 +56,7 @@ export default {
         maxHp: 13219
       }, {
         id: '213',
-        avatarUrl: 'servant_avatar/servant213.jpg',
+        avatarUrl: 'servant_avatar/Servant213.jpg',
         name: '齐格鲁德',
         jpName: 'シグルド',
         enName: 'Sigurd',
