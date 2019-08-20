@@ -62,6 +62,7 @@ export default {
   },
   methods: {
     toCard (item) {
+      // 如果用path代替name，则不能带params,例: path:`/concept-card/${item.id}`
       this.$router.push({
         name: 'ConceptCard',
         params: {id: item.id},

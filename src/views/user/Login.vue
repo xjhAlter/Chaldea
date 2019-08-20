@@ -1,7 +1,7 @@
 <template>
   <div class="login-main">
     <div class="content">
-      <el-input placeholder="请输入登陆账号" prefix-icon="el-icon-user-solid" v-model="userInfo.account"></el-input>
+      <el-input placeholder="请输入登陆账号" prefix-icon="el-icon-user-solid" v-model.trim="userInfo.username"></el-input>
       <el-input placeholder="请输入登陆密码" prefix-icon="el-icon-lock" v-model="userInfo.password"></el-input>
       <el-button @click.native="submit" type="success">登陆</el-button>
       <el-button @click.native="back">取消</el-button>
@@ -15,18 +15,28 @@ export default {
   data () {
     return {
       userInfo: {
-        account: '',
+        username: '',
         password: ''
       }
     }
   },
+  created () {
+    // $on,$emit用于组件之间通信，这里只做参考
+    this.$on('userLogin', function (username) {
+      console.log('Login:' + username)
+    })
+  },
   methods: {
     submit () {
       console.log('submit')
-      this.$router.push({name: 'Home'})
+      if (this.userInfo.username) {
+        this.$router.back()
+        this.$emit('userLogin', this.userInfo.username)
+      }
     },
     back () {
-      this.$router.push({name: 'Home'})
+      console.log('back')
+      this.$router.back()
     }
   }
 }

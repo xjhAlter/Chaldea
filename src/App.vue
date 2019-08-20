@@ -26,6 +26,14 @@ export default {
     Header,
     Footer,
     RightTool
+  },
+  created () {
+    // this.$on('userLogin', function (callback) {
+    //   console.log('Login:')
+    // })
+  },
+  methods: {
+
   }
 }
 </script>

@@ -17,7 +17,7 @@ let router = new Router({
     //   component: HelloWorld
     // }
     {
-      path: '/(index.html)?',
+      path: '/',
       redirect: '/home',
       component: Home
     },
