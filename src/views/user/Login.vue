@@ -1,5 +1,5 @@
 <template>
-  <div class="login-main">
+  <div class="login-main" :style="mainStyle">
     <div class="content">
       <el-input placeholder="请输入登陆账号" prefix-icon="el-icon-user-solid" v-model.trim="userInfo.username"></el-input>
       <el-input placeholder="请输入登陆密码" prefix-icon="el-icon-lock" v-model="userInfo.password"></el-input>
@@ -38,6 +38,13 @@ export default {
       console.log('back')
       this.$router.back()
     }
+  },
+  computed: {
+    mainStyle () {
+      return {
+        backgroundImage: `url(${require('@/assets/image/common/login_bg.jpg')})`
+      }
+    }
   }
 }
 </script>
@@ -50,7 +57,8 @@ export default {
     left: 0;
     width: 100%;
     height: 100%;
-    background: #fff url("https://img.alicdn.com/imgextra/i3/2406822118/O1CN01F7o6mo1RW5Q20XOJu-2406822118.png") no-repeat;
+    background-color: #fff;
+    background-repeat: no-repeat;
     background-size:cover;
     z-index: 1001;
 

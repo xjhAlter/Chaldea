@@ -1,13 +1,6 @@
 <template>
   <div class="servant-list-main">
-    <h1>从者列表</h1>
-<!--    <el-button @click="toServant()">测试</el-button>-->
-<!--    <el-button @click="toServant()" type="primary">测试</el-button>-->
-<!--    <el-button @click="toServant()" type="danger">测试</el-button>-->
-<!--    <el-button @click="toServant()" type="warning">测试</el-button>-->
-<!--    <el-button @click="toServant()" type="success">测试</el-button>-->
-<!--    <el-button @click="toServant()" type="info">测试</el-button>-->
-
+    <h1>Servant List</h1>
     <el-table :data="items" stripe border style="width: 100%" class="servant-table" :highlight-current-row="true">
       <el-table-column prop="id" label="No." width="120" :align="'center'"></el-table-column>
       <el-table-column label="头像" :align="'center'">
@@ -15,7 +8,7 @@
           <ImgModal :imgUrl="scope.row.avatarUrl" :imgWidth="66" :imgHeight="72" :localMode="true"></ImgModal>
         </template>
       </el-table-column>
-      <el-table-column label="姓名" width="120" :align="'center'">
+      <el-table-column label="姓名" width="180" :align="'center'">
         <template slot-scope="scope">
           <div class="highlight" @click="toServant(scope.row.id)">{{scope.row.name}}</div>
           <div>{{scope.row.jpName}}</div>
@@ -42,6 +35,19 @@ export default {
   data () {
     return {
       items: [{
+        id: '196',
+        avatarUrl: 'servant_avatar/Servant196.jpg',
+        name: '埃列什基伽勒',
+        jpName: 'エレシュキガル',
+        enName: 'Ereshkigal',
+        class: 'Lancer',
+        rarity: '5',
+        np: 'Buster All',
+        attr: '地',
+        access: '期间限定',
+        maxAtk: 10343,
+        maxHp: 16065
+      }, {
         id: '206',
         avatarUrl: 'servant_avatar/Servant206.jpg',
         name: '阿喀琉斯',
@@ -67,6 +73,45 @@ export default {
         access: '期间限定',
         maxAtk: 12465,
         maxHp: 13975
+      }, {
+        id: '214',
+        avatarUrl: 'servant_avatar/Servant214.jpg',
+        name: '瓦尔基里',
+        jpName: 'ワルキューレ',
+        enName: 'Valkyrie',
+        class: 'Lancer',
+        rarity: '4',
+        np: 'Quick All',
+        attr: '天',
+        access: '圣晶石常驻',
+        maxAtk: 8037,
+        maxHp: 14025
+      }, {
+        id: '215',
+        avatarUrl: 'servant_avatar/Servant215.jpg',
+        name: '斯卡哈・丝卡蒂',
+        jpName: 'スカサハ＝スカディ',
+        enName: 'Scáthach⇋Skaði',
+        class: 'Caster',
+        rarity: '5',
+        np: 'Art Assist',
+        attr: '天',
+        access: '期间限定',
+        maxAtk: 10753,
+        maxHp: 14406
+      }, {
+        id: '230',
+        avatarUrl: 'servant_avatar/Servant230.jpg',
+        name: '虞美人',
+        jpName: '虞美人',
+        enName: 'Consort Yu',
+        class: 'Assassin',
+        rarity: '4',
+        np: 'Buster All',
+        attr: '地',
+        access: '剧情限定',
+        maxAtk: 7970,
+        maxHp: 13389
       }]
     }
   },
