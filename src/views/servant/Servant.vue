@@ -3,13 +3,18 @@
     从者信息
     <h2>{{id || 'none'}}</h2>
     <img :src="imgSrc" v-if="id==='196'" alt="">
+    <Shuttle v-else></Shuttle>
   </div>
 </template>
 
 <script>
+import {Shuttle} from '@/components'
 export default {
   name: 'Servant',
   props: ['id'],
+  components: {
+    Shuttle
+  },
   data () {
     return {
       sid: this.id || '无'
