@@ -1,21 +1,17 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-// import HelloWorld from '@/components/HelloWorld'
+
 import Home from '@/views/home/Home'
 import User from '@/views/user'
 import Servant from '@/views/servant'
 import ConceptCard from '@/views/conceptCard'
+import CommandCard from '@/views/commandCard'
 
 Vue.use(Router)
 
 let router = new Router({
   mode: 'history',
   routes: [
-    // {
-    //   path: '/',
-    //   name: 'HelloWorld',
-    //   component: HelloWorld
-    // }
     {
       path: '/',
       redirect: '/home',
@@ -28,7 +24,8 @@ let router = new Router({
     },
     ...User,
     ...Servant,
-    ...ConceptCard
+    ...ConceptCard,
+    ...CommandCard
   ]
 })
 

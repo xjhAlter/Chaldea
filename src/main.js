@@ -8,10 +8,11 @@ import '@/assets/js/common.js'
 
 import ElementUi from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
+import database from './assets/js/dataHandler.js'
+Vue.use(ElementUi)
+Vue.prototype.$database = database
 
 Vue.config.productionTip = false
-
-Vue.use(ElementUi)
 
 /* eslint-disable no-new */
 new Vue({

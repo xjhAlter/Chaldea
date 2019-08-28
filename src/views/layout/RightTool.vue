@@ -1,7 +1,10 @@
 <template>
   <div class="right-tool">
     <ul class="right-tool-ul">
-      <li>啊哈</li>
+      <li @click="uploadFile">
+        <span>文件</span>
+        <input accept=".xlsx,.xls" id="file" type="file"/>
+      </li>
       <li>哈哈</li>
       <li v-show="showTop" @click="toTop">top</li>
     </ul>
@@ -52,6 +55,9 @@ export default {
       } else {
         ulElement.style.right = 'auto'
       }
+    },
+    uploadFile () {
+      document.getElementById('file').click()
     }
   },
   created () {
@@ -61,6 +67,9 @@ export default {
     window.addEventListener('scroll', this.getScrollTop)
     window.addEventListener('resize', this.onWindowResize)
     this.onWindowResize()
+
+    // 监听文件上传
+    document.getElementById('file').addEventListener('change', this.$database.init)
 
     // let _this = this;
     // window.onscroll = function () {
@@ -102,6 +111,9 @@ export default {
       }
       &:last-child {
         margin-top: 200px;
+      }
+      #file {
+        display: none;
       }
     }
     position: fixed;

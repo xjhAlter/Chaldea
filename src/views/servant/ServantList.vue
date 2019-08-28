@@ -11,8 +11,8 @@
       <el-table-column label="姓名" width="180" :align="'center'">
         <template slot-scope="scope">
           <div class="highlight" @click="toServant(scope.row.id)">{{scope.row.name}}</div>
-          <div>{{scope.row.jpName}}</div>
-          <div>{{scope.row.enName}}</div>
+          <div>{{scope.row.jpName || '无'}}</div>
+          <div>{{scope.row.enName || '无'}}</div>
         </template>
       </el-table-column>
       <el-table-column prop="np" label="宝具" width="120" :align="'center'"></el-table-column>
@@ -34,93 +34,72 @@ export default {
   },
   data () {
     return {
-      items: [{
-        id: '196',
-        avatarUrl: 'servant_avatar/Servant196.jpg',
-        name: '埃列什基伽勒',
-        jpName: 'エレシュキガル',
-        enName: 'Ereshkigal',
-        class: 'Lancer',
-        rarity: '5',
-        np: 'Buster All',
-        attr: '地',
-        access: '期间限定',
-        maxAtk: 10343,
-        maxHp: 16065
-      }, {
-        id: '206',
-        avatarUrl: 'servant_avatar/Servant206.jpg',
-        name: '阿喀琉斯',
-        jpName: 'アキレウス',
-        enName: 'Achilles',
-        class: 'Rider',
-        rarity: '5',
-        np: 'Quick All',
-        attr: '地',
-        access: '圣晶石常驻',
-        maxAtk: 11883,
-        maxHp: 13219
-      }, {
-        id: '213',
-        avatarUrl: 'servant_avatar/Servant213.jpg',
-        name: '齐格鲁德',
-        jpName: 'シグルド',
-        enName: 'Sigurd',
-        class: 'Saber',
-        rarity: '5',
-        np: 'Buster Single',
-        attr: '地',
-        access: '期间限定',
-        maxAtk: 12465,
-        maxHp: 13975
-      }, {
-        id: '214',
-        avatarUrl: 'servant_avatar/Servant214.jpg',
-        name: '瓦尔基里',
-        jpName: 'ワルキューレ',
-        enName: 'Valkyrie',
-        class: 'Lancer',
-        rarity: '4',
-        np: 'Quick All',
-        attr: '天',
-        access: '圣晶石常驻',
-        maxAtk: 8037,
-        maxHp: 14025
-      }, {
-        id: '215',
-        avatarUrl: 'servant_avatar/Servant215.jpg',
-        name: '斯卡哈・丝卡蒂',
-        jpName: 'スカサハ＝スカディ',
-        enName: 'Scáthach⇋Skaði',
-        class: 'Caster',
-        rarity: '5',
-        np: 'Art Assist',
-        attr: '天',
-        access: '期间限定',
-        maxAtk: 10753,
-        maxHp: 14406
-      }, {
-        id: '230',
-        avatarUrl: 'servant_avatar/Servant230.jpg',
-        name: '虞美人',
-        jpName: '虞美人',
-        enName: 'Consort Yu',
-        class: 'Assassin',
-        rarity: '4',
-        np: 'Buster All',
-        attr: '地',
-        access: '剧情限定',
-        maxAtk: 7970,
-        maxHp: 13389
-      }]
+      items: []
+      // 数据格式
+      // items: [{
+      //   id: '196',
+      //   avatarUrl: 'servant_avatar/Servant196.jpg',
+      //   name: '埃列什基伽勒',
+      //   jpName: 'エレシュキガル',
+      //   enName: 'Ereshkigal',
+      //   class: 'Lancer',
+      //   rarity: '5',
+      //   np: 'Buster All',
+      //   attr: '地',
+      //   access: '期间限定',
+      //   maxAtk: 10343,
+      //   maxHp: 16065
+      // }, {
+      //   id: '215',
+      //   avatarUrl: 'servant_avatar/Servant215.jpg',
+      //   name: '斯卡哈・丝卡蒂',
+      //   jpName: 'スカサハ＝スカディ',
+      //   enName: 'Scáthach⇋Skaði',
+      //   class: 'Caster',
+      //   rarity: '5',
+      //   np: 'Art Assist',
+      //   attr: '天',
+      //   access: '期间限定',
+      //   maxAtk: 10753,
+      //   maxHp: 14406
+      // }, {
+      //   id: '230',
+      //   avatarUrl: 'servant_avatar/Servant230.jpg',
+      //   name: '虞美人',
+      //   jpName: '虞美人',
+      //   enName: 'Consort Yu',
+      //   class: 'Assassin',
+      //   rarity: '4',
+      //   np: 'Buster All',
+      //   attr: '地',
+      //   access: '剧情限定',
+      //   maxAtk: 7970,
+      //   maxHp: 13389
+      // }]
     }
   },
+  created () {
+    this.getList()
+  },
   methods: {
+    getList () {
+      this.items = this.$database.getTable('servantList')
+    },
     toServant (id) {
       this.$router.push({
         name: 'Servant',
         params: {id: id}
       })
+    }
+  },
+  watch: {
+    '$route': {
+      handler (to, from) {
+        if (from.name !== 'ServantList') {
+          this.getList()
+        }
+      },
+      deep: true
     }
   }
 }
