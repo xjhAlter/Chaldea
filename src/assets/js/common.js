@@ -14,6 +14,14 @@ function add (a, b) {
   return a + b
 }
 
+/**
+ * 获取本地图片
+ * @param imgUrl
+ */
+function getLocalImg (imgUrl) {
+  return require(`../image/${imgUrl}`)
+}
+
 export {
   PI,
   cos,
@@ -23,5 +31,6 @@ export {
   pow,
   random,
   atan2,
-  add
+  add,
+  getLocalImg
 }

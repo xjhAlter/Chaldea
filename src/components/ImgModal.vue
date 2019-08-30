@@ -11,6 +11,8 @@
 </template>
 
 <script>
+import {getLocalImg} from '../assets/js/common'
+
 export default {
   name: 'ImgModal',
   props: {
@@ -57,7 +59,9 @@ export default {
     imgSrc () {
       if (this.localMode) {
         // 由于:src 不能解析本地图片，所以以这种方式引入本地图片，本地图片统一放在/assets/image/下
-        return require(`../assets/image/${this.imgUrl}`)
+        // return require(`../assets/image/${this.imgUrl}`)
+        // 更新，使用通用方法获取本地图片
+        return getLocalImg(this.imgUrl)
       } else {
         return this.imgUrl
       }
