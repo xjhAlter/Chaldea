@@ -17,6 +17,40 @@
     <!-- built files will be auto injected -->
     <script>
       function onload() {
+
+        document.onkeydown = function (e) {
+          // 阻止按下退格键 页面返回事件
+          if (e.keyCode === 8) {
+            let target = e.target || e.srcElement || e.relatedTarget || e.currentTarget,
+              tag = '',
+              inputType = ''
+            if (target && target.tagName) {
+              tag = target.tagName.toLowerCase()
+              if(tag === 'input' && target.type){
+                inputType = target.type.toLowerCase()
+              }
+            }
+            let enableMaps = {
+              input: 1,
+              text: 1,
+              textarea: 1,
+              password: 1
+            }
+            let disableInputTypeMap = {
+              checkbox: 1,
+              radio: 1
+            }
+            if (!enableMaps[tag] || (tag === 'input' && disableInputTypeMap[inputType])) {
+              if (e.preventDefault) {
+                e.preventDefault()
+              } else {
+                e.returnValue = false
+              }
+              return false
+            }
+          }
+        }
+
         setTimeout(function () {
           function _asyncScript(src, callback) {
             var body = document.getElementsByTagName('body')[0];

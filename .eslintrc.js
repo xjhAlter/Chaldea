@@ -31,5 +31,6 @@ module.exports = {
           // 参数不检查
           "args": "none"
         }],
+    "eqeqeq": 0  // 关闭全等校验
   }
 }
