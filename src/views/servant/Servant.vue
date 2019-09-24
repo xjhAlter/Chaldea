@@ -1,6 +1,6 @@
 <template>
   <div>
-    从者信息
+<!--    从者信息-->
     <h2>{{id || 'none'}}</h2>
 <!--    <img :src="imgSrc" v-if="id=='196'" alt="">-->
     <ImgCarousel v-if="id=='196'" :imgList="imgList"></ImgCarousel>
