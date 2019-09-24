@@ -5,6 +5,7 @@
       <el-col :span="3" @click.native="go('ServantList')" :class="{'color-primary':isCurrent('Servant')}">英灵</el-col>
       <el-col :span="3" @click.native="go('ConceptCardList')" :class="{'color-primary':isCurrent('ConceptCard')}">概念礼装</el-col>
       <el-col :span="3" @click.native="go('CommandCardList')" :class="{'color-primary':isCurrent('CommandCard')}">指令纹章</el-col>
+      <el-col :span="3" @click.native="go('Laboratory')" :class="{'color-primary':isCurrent('Laboratory')}">实验室</el-col>
       <el-col :span="3" @click.native="go('UserLogin')" :class="{'color-primary':isCurrent('User')}" :offset="16">登陆</el-col>
     </el-row>
   </div>

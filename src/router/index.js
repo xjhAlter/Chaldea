@@ -6,6 +6,7 @@ import User from '@/views/user'
 import Servant from '@/views/servant'
 import ConceptCard from '@/views/conceptCard'
 import CommandCard from '@/views/commandCard'
+import Laboratory from '@/views/laboratory'
 
 Vue.use(Router)
 
@@ -25,7 +26,8 @@ let router = new Router({
     ...User,
     ...Servant,
     ...ConceptCard,
-    ...CommandCard
+    ...CommandCard,
+    ...Laboratory
   ]
 })
 
