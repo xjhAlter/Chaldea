@@ -4,27 +4,27 @@
     <div class="cube">
       <!--前面图片-->
       <div class="out_front">
-        <img src="../assets/logo.png" class="pic" />
+        <img src="../assets/image/common/logo-middle.png" class="pic" />
       </div>
       <!--后面图片-->
       <div class="out_back">
-        <img src="../assets/logo.png" class="pic" />
+        <img src="../assets/image/common/logo-middle.png" class="pic" />
       </div>
       <!--左面图片-->
       <div class="out_left">
-        <img src="../assets/logo.png" class="pic" />
+        <img src="../assets/image/common/logo-middle.png" class="pic" />
       </div>
       <!--右面图片-->
       <div class="out_right">
-        <img src="../assets/logo.png" class="pic" />
+        <img src="../assets/image/common/logo-middle.png" class="pic" />
       </div>
       <!--上面图片-->
       <div class="out_top">
-        <img src="../assets/logo.png" class="pic" />
+        <img src="../assets/image/common/logo-middle.png" class="pic" />
       </div>
       <!--下面图片-->
       <div class="out_bottom">
-        <img src="../assets/logo.png" class="pic" />
+        <img src="../assets/image/common/logo-middle.png" class="pic" />
       </div>
       <!--test-->
       <!--<div>-->
