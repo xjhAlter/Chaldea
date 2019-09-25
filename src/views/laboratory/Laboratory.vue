@@ -7,20 +7,36 @@
     </div>
     <div class="laboratory-content">
       <MagicCube></MagicCube>
-
+      <RotaryAlbum @onImgClick="onImgClick"></RotaryAlbum>
+      <div class="current-img-wrapper">
+        <ImgModal v-if="currentImg" :imgUrl="currentImg.imgUrl" :imgWidth="285" :imgHeight="403" :localMode="true"></ImgModal>
+      </div>
     </div>
 
   </div>
 </template>
 
 <script>
-import {MagicCube} from '@/components'
+import {MagicCube, RotaryAlbum, ImgModal} from '@/components'
 export default {
   name: 'Laboratory',
   components: {
-    MagicCube
+    MagicCube,
+    RotaryAlbum,
+    ImgModal
+  },
+  data () {
+    return {
+      currentImg: null
+    }
   },
   mounted () {
+  },
+  methods: {
+    onImgClick (item) {
+      console.log(item)
+      this.$set(this, 'currentImg', item)
+    }
   }
 }
 </script>
@@ -37,11 +53,18 @@ export default {
       left: -50px;
       transform: rotate(-20deg);
       font-size: 20px;
+      z-index: 1;
     }
     .laboratory-content {
+      position: relative;
       width: 1200px;
       height: 1000px;
       background-color: rgba(253,242,218,.7);
+      .current-img-wrapper {
+        position: absolute;
+        top: 10px;
+        left: 800px;
+      }
     }
   }
 </style>
