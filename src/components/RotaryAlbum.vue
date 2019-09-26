@@ -14,37 +14,41 @@ export default {
   name: 'RotaryAlbum',
   data () {
     return {
-      // 测试用数据，有时间再改一下
-      imgList: [{
-        imgUrl: 'servant_card/196/0.png',
-        title: ''
-      }, {
-        imgUrl: 'servant_card/196/1.png',
-        title: ''
-      }, {
-        imgUrl: 'servant_card/196/2.png',
-        title: ''
-      }, {
-        imgUrl: 'servant_card/196/3.png',
-        title: ''
-      }, {
-        imgUrl: 'servant_card/196/4.png',
-        title: ''
-      }, {
-        imgUrl: 'servant_card/196/0.png',
-        title: ''
-      }, {
-        imgUrl: 'servant_card/196/1.png',
-        title: ''
-      }, {
-        imgUrl: 'servant_card/196/2.png',
-        title: ''
-      }, {
-        imgUrl: 'servant_card/196/3.png',
-        title: ''
-      }
-      ]
+      imgList: []
     }
+  },
+  created () {
+    // 测试用
+    let testList = [{
+      imgUrl: 'servant_card/196/0.png',
+      title: ''
+    }, {
+      imgUrl: 'servant_card/196/1.png',
+      title: ''
+    }, {
+      imgUrl: 'servant_card/196/2.png',
+      title: ''
+    }, {
+      imgUrl: 'servant_card/196/3.png',
+      title: ''
+    }, {
+      imgUrl: 'servant_card/196/4.png',
+      title: ''
+    }, {
+      imgUrl: 'servant_card/196/0.png',
+      title: ''
+    }, {
+      imgUrl: 'servant_card/196/1.png',
+      title: ''
+    }, {
+      imgUrl: 'servant_card/196/2.png',
+      title: ''
+    }, {
+      imgUrl: 'servant_card/196/3.png',
+      title: ''
+    }]
+    testList = testList.slice(0, Math.floor(Math.random() * 6) + 4)
+    this.$set(this, 'imgList', testList)
   },
   methods: {
     imgClick (item) {
@@ -59,9 +63,10 @@ export default {
     },
     getStyle () {
       return function (index) {
-        let offset = index * (360 / this.imgList.length)
+        let offsetY = index * (360 / this.imgList.length)
+        let offsetZ = this.imgList.length > 5 ? 250 : 160
         return {
-          'transform': `rotateY(${offset}deg) translateZ(250px)`
+          'transform': `rotateY(${offsetY}deg) translateZ(${offsetZ}px)`
         }
       }
     }
@@ -79,21 +84,21 @@ export default {
     }
   }
   .rotary-album {
-    height: 100px;
+    position: relative;
+    height: 200px;
     .stage-area {
+      position: relative;
       perspective: 800px;
       -webkit-perspective: 800px;
-      /*perspective-origin: center 30%;*/
-      /*-webkit-perspective-origin: center 30%;*/
-      transform-style: preserve-3d;
-      transform: rotateX(-10deg);
+      perspective-origin: center 30%;
+      -webkit-perspective-origin: center 30%;
       min-height: 100%;
       .container {
         transform-style: preserve-3d;
         transform-origin:100% 100%;
         width: 160px;
         position: absolute;
-        top: 50%;
+        top: 100%;
         left: 50%;
         margin-top: -80px;
         margin-left: -80px;
