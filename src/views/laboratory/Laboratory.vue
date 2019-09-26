@@ -15,19 +15,23 @@
           <ImgModal :imgUrl="currentImg.imgUrl" :imgWidth="285" :imgHeight="403" :localMode="true"></ImgModal>
         </div>
       </div>
+      <div class="lab-box">
+        <Sphere></Sphere>
+      </div>
     </div>
 
   </div>
 </template>
 
 <script>
-import {MagicCube, RotaryAlbum, ImgModal} from '@/components'
+import {MagicCube, RotaryAlbum, ImgModal, Sphere} from '@/components'
 export default {
   name: 'Laboratory',
   components: {
     MagicCube,
     RotaryAlbum,
-    ImgModal
+    ImgModal,
+    Sphere
   },
   data () {
     return {
@@ -38,7 +42,6 @@ export default {
   },
   methods: {
     onImgClick (item) {
-      console.log(item)
       this.$set(this, 'currentImg', item)
     }
   }

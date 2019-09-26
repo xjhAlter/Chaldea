@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import {getLocalImg} from '../assets/js/common'
+import {random, getLocalImg} from '../assets/js/common'
 export default {
   name: 'RotaryAlbum',
   data () {
@@ -47,7 +47,7 @@ export default {
       imgUrl: 'servant_card/196/3.png',
       title: ''
     }]
-    testList = testList.slice(0, Math.floor(Math.random() * 6) + 4)
+    testList = testList.slice(0, Math.floor(random() * 6) + 4)
     this.$set(this, 'imgList', testList)
   },
   methods: {

@@ -26,17 +26,21 @@
       <div class="out_bottom">
         <img src="../assets/image/common/logo-middle.png" class="pic" />
       </div>
-      <!--test-->
-      <!--<div>-->
-      <!--<img src="../assets/logo.png" class="pic" />-->
-      <!--</div>-->
+      <!--中心-->
+      <div class="center">
+        <Sphere :radius="50"></Sphere>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
+import {Sphere} from '@/components'
 export default {
-  name: 'MagicCube'
+  name: 'MagicCube',
+  components: {
+    Sphere
+  }
 }
 </script>
 
@@ -47,6 +51,15 @@ export default {
     }
     to {
       transform: rotateX(360deg) rotateY(360deg);
+    }
+  }
+
+  @-webkit-keyframes centerRotate {
+    from {
+      transform: rotateX(0deg) rotateY(0deg) translateY(50px) translateX(50px);
+    }
+    to {
+      transform: rotateX(-360deg) rotateY(-360deg) translateY(50px) translateX(50px);
     }
   }
 
@@ -61,7 +74,7 @@ export default {
       height: 200px;
       margin: 0 auto;
       transform-style: preserve-3d;
-      transform: rotateX(-30deg) rotateY(-80deg);
+      /*transform: rotateX(-30deg) rotateY(-80deg);*/
       animation: rotate linear 20s infinite;
 
       div {
@@ -93,6 +106,16 @@ export default {
         }
         &.out_bottom {
           transform: rotateX(-90deg) translateZ(100px);
+        }
+        &.center {
+          /*display: flex;*/
+          /*justify-content: center;*/
+          /*align-items: center;*/
+          /*background-color: #f56c6c;*/
+          transform-style: preserve-3d;
+          /*transform: rotateX(30deg) rotateY(80deg) translateY(50px) translateX(50px);*/
+          /* 视角绕来绕去的，需要再改下 */
+          animation: centerRotate linear 20s infinite;
         }
       }
 
